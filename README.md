@@ -13,7 +13,7 @@ There are different aspects to consider: data ingestion, validation, normalizati
 * C-Rating™ can normalize the distribution between partner ratings. For example when a platform has a higher scoring tendency than others overall.
 * The tech stack is not the most important part of this test, so I will mention only some tools and not describe the trade-offs.
 
-## Steps
+## Phases
 ### Ingestion
 In this phase, we only add external data to our platform without any transformation. The first reason for doing this is if an error is raised, we can track down the issue and determine whether it originates from our system or the imported data. Second, if the problem is not in the data, we can rebuild the latest state from the same data after fixing the code.
 
@@ -41,4 +41,5 @@ Data is stored under another S3 prefix (or folder) but its format would depend o
 ### Exploitation 
 We have listeners waiting for the output of the C-Rating™ algorithm. When the process finishes, the data is stored in a query engine such as Solr or MySQL, depending on the query requirements. This strategy allows us to adapt to UX requirements without modifying any code in the C-Rating™ algorithm.
 
+![img](./scheme.png)
 
